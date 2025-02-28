@@ -1,0 +1,26 @@
+global:
+  checkNewVersion: true
+  sendAnonymousUsage: false
+
+entryPoints:
+  web:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: "websecure"
+          scheme: "https"
+  websecure:
+    address: ":443"
+
+certificatesResolvers:
+  lets-encrypt:
+    acme:
+      email: dell4sea@gmail.com
+      storage: "/letsencrypt/acme.json"
+      httpChallenge:
+        entryPoint: "web"
+
+providers:
+  docker:
+    exposedByDefault: false
