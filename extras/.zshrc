@@ -75,8 +75,6 @@ plugins=(
 for plugin in "${plugins[@]}"; do
   zinit light "$plugin"
 done
-source <(fzf --zsh)
-eval "$(zoxide init zsh)"
 
 #  ┌┬┐┬ ┬┌─┐  ┌─┐┬─┐┌─┐┌┬┐┌─┐┌┬┐
 #   │ ├─┤├┤   ├─┘├┬┘│ ││││├─┘ │
@@ -184,3 +182,6 @@ alias dr="docker run"
 alias dp="docker pull"
 alias dx="docker exec -it"
 alias lzd="lazydocker"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(zoxide init zsh)"
