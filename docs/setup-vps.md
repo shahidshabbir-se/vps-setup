@@ -110,3 +110,29 @@ sudo ufw enable
 # Check UFW status
 sudo ufw status
 ```
+
+## 5. (Optional) Install and Configure Fail2Ban
+
+```
+# Install Fail2Ban
+sudo apt install fail2ban
+
+# Create a local configuration file
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+
+# Edit Fail2Ban configuration for SSH
+sudo nano /etc/fail2ban/jail.local
+# Ensure the following lines are set:
+# [sshd]
+# enabled = true
+# port = 22 # Change this if you've modified your SSH port.
+# maxretry = 5
+# bantime = 3600
+
+# Restart Fail2Ban service
+sudo systemctl restart fail2ban
+
+# Check Fail2Ban status
+sudo fail2ban-client status
+sudo fail2ban-client status sshd
+```
