@@ -38,7 +38,7 @@ ssh newuser@your-server-ip
 ## 3. Harden SSH
 ```
 # Open SSH configuration file
-sudo nano /etc/ssh/sshd_config
+sudo vi /etc/ssh/sshd_config
 
 # Ensure the following settings are set (uncomment if necessary):
 PermitRootLogin no  # Disable root login
@@ -121,7 +121,7 @@ sudo apt install fail2ban
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 
 # Edit Fail2Ban configuration for SSH
-sudo nano /etc/fail2ban/jail.local
+sudo vi /etc/fail2ban/jail.local
 # Ensure the following lines are set:
 # [sshd]
 # enabled = true
